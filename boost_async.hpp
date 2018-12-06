@@ -31,7 +31,7 @@ private:
     std::atomic_bool close_;
     char data_[DATA_SIZE]{0};
     boost::asio::io_service io_service_;
-    AsioAcceptor acceptor_;
+    // AsioAcceptor acceptor_;
 };
 
 #define BOOST_ASYNC
