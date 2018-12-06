@@ -3,8 +3,7 @@ project(Randomshitprogram)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-find_package(Boost 1.53.0 COMPONENTS system filesystem REQUIRED)
-
+find_package(Boost 1.65.1 COMPONENTS system filesystem REQUIRED)
 if(Boost_FOUND)
 
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
@@ -17,3 +16,4 @@ endif()
 
 set(SOURCE_FILES boost_async.cc)
 add_executable(Randomshitprogram ${SOURCE_FILES})
+target_link_libraries(Randomshitprogram ${Boost_LIBRARIES})
