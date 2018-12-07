@@ -1,0 +1,79 @@
+syntax = "proto2";
+package networkif.protoc;
+
+option optimize_for = LITE_RUNTIME;
+
+
+import "GeneralHeader.proto";
+
+/**
+* Common header contains those common information in front of each message.
+*
+* Note:
+*
+* - Message type and variable-length payload length are defined in message raw header, which is out of protobuf content.
+*   See also: https://developers.google.com/protocol-buffers/docs/techniques
+*/
+
+message EstablishSession {
+    required GeneralHeader header = 1;
+
+    enum SessionType {
+        CONTROL_SESSION = 1;
+        CONTENT_TRANSMISSION = 2;
+    }
+
+    required SessionType sessionType = 2;
+    optional string previousSessionId = 3; /// If the msg is sent by the EM and it intends to resume a previous session this is the id of such session
+    optional string clientVersion = 4; /// specifies the client version name e.g. "IMP 1.4.2", "ADMIN xL16A.5.3"
+    optional string clientVersionHash = 5; /// specifies the client version hash used to verify client compatibility
+    optional uint32 updateIntervalMin = 6; /// specifies the minimum number of milliseconds used within BTS to send updates to the client, default = 10000ms
+    optional uint32 heartbeatInterval = 7; /// specifies the number of seconds between consecutive heartbeats, default = 30s
+    optional uint32 heartbeatLostThreshold = 8; /// specifies the number of consecutive heartbeats before the connection is considered as out of service, default = 3
+    /**
+    * Specifies EM proposed file size boundary between embedded file transfer and heavy file transfer (using HTTP/S).
+    * Default = 32 KB.
+    */
+    optional uint32 fileSizeThresholdInKB = 9;
+}
+
+/**
+* Used by BTS to confirm the request for session establishment.
+*  Services of session are the intersection of the requested and the available services.
+*  The HeaderField SessionId contains the Id that will be used, type shall be set as SESSION_ESTABLISHED
+*/
+message SessionEstablished {
+    required GeneralHeader header = 1;
+
+    enum SessionEstablishedResult {
+      SUCCESS = 1;
+      INVALID_UNSPECIFIED = 2; /// reason specified in resultDescription
+      SESSIONS_LIMIT_EXCEEDED = 3;
+    }
+
+    required SessionEstablishedResult result = 2;
+
+    message SuccessResponse {
+        /**
+        * SessionId assigned (or confirmed in case of reestablishment) by BTS. If EM side finds an exact match, all
+        * previously interrupted state shall be resumed, including ackSeq and possibly broken transactionId
+        */
+        required string assignedSessionId = 1;
+        required string sessionObjectDistname = 2; /// distname of created SESSION-x object (into InfoModel)
+        optional string embeddedClientVersion = 3; /// specifies the client version embedded in BTS e.g. "ADMIN xL16A.5.3"
+        optional string embeddedClientVersionHash = 4; /// specifies the client version hash embedded in BTS (for ADMIN)
+        optional uint32 updateIntervalMin = 5; /// Confirmed updateInterval by this session, default = 10000
+        optional uint32 heartbeatInterval = 6; /// Confirmed heartbeat interval used by peers, default = 30s
+
+        /// Confirmed heartbeat lost threshold (number of consecutive lost), default = 3
+        optional uint32 heartbeatLostThreshold = 7;
+
+        /// Confirmed file size boundary in KB, above which heavy file transfer mechanism has to be used using HTTP/S.
+        optional uint32 fileSizeThresholdInKB = 8;
+    }
+
+    oneof responseDetails {
+        SuccessResponse successResp = 3; ///successful case only
+        string resultDescription = 4; /// for exceptional case description
+    }
+}

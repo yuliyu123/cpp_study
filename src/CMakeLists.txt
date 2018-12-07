@@ -1,0 +1,8 @@
+set(SERVICE_SOURCE_FILES boost_async.cc Server.cc)
+add_executable(Server ${SERVICE_SOURCE_FILES})
+set(CLIENT_SOURCE_FILES boost_async.cc Client.cc)
+add_executable(Client ${CLIENT_SOURCE_FILES})
+# add_executable(Server Server.cc boost_async.cc)
+# add_executable(Client Client.cc boost_async.cc)
+target_link_libraries(Server ${Boost_LIBRARIES})
+target_link_libraries(Client ${Boost_LIBRARIES})
