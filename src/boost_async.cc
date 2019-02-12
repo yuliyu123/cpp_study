@@ -52,7 +52,7 @@ Service::Service(boost::asio::io_service& io_service, short port)
     : acceptor_(io_service, tcp::endpoint(tcp::v4(), port))
      , socket_(io_service)
      , io_service_(io_service)
-     , resolver_(io_service)
+     // , resolver_(io_service)
      , port_(port)
 {}
 

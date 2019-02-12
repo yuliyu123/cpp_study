@@ -1,5 +1,7 @@
 #ifndef BOOST_ASYNC
-#include "CommonDef.hpp"
+#define BOOST_ASYNC
+
+#include "CommonDef.h"
 
 class boost_async: public std::enable_shared_from_this<boost_async>
 {
@@ -32,10 +34,10 @@ public:
 	~Service() = default;
 
 private:
-	tcp::acceptor acceptor_;
-    tcp::socket socket_;
-    boost::asio::io_service& io_service_;
-    AsioTcpAsolver resolver_;
+	AsioAcceptor acceptor_;
+    AsioTcpSocket socket_;
+    AsioIoService& io_service_;
+    // AsioTcpSolver resolver_;
     short port_;
 };
 
