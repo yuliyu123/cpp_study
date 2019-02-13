@@ -24,29 +24,30 @@ public:
 	// void remove();
 	// void update();
 
-	void setReadCallback(EventCallback&& cb)
+	void setReadCallback(EventCallback&& readHandler)
 	{
-		readCallBack_ = std::move(cb);
+		std::cout << "Channel::setReadCallback" << std::endl;
+		readCallBack_ = readHandler;
 	}
 
-	void setWriteCallBack(EventCallback&& cb)
+	void setWriteCallBack(EventCallback&& writeHandler)
 	{
-		writeCallback_ = std::move(cb);
+		writeCallback_ = writeHandler;
 	}
 
-	void setCloseCallback(EventCallback&& cb)
+	void setCloseCallback(EventCallback&& closeHandler)
 	{
-		closeCallback_ = std::move(cb);
+		closeCallback_ = closeHandler;
 	}
 
-	void setErrorCallback(EventCallback&& cb)
+	void setErrorCallback(EventCallback&& errorHandler)
 	{
-		errorCallback_ = std::move(cb);
+		errorCallback_ = errorHandler;
 	}
 
-	void setConnCallback(EventCallback&& cb)
+	void setConnCallback(EventCallback&& connHandler)
 	{
-		connCallback_ = std::move(cb);
+		connCallback_ = connHandler;
 	}
 
 	int getFd()

@@ -41,6 +41,7 @@ bool EventLoop::assertInLoopThread()
 // event loop
 void EventLoop::loop()
 {
+	std::cout << looping_ << std::endl;
 	assert(!looping_);
 	assertInLoopThread(); // 处在该线程中， 但该eventloop的loop还没用到
 	looping_ = true;

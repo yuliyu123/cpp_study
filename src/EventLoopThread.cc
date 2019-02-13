@@ -22,7 +22,6 @@ EventLoopThread::~EventLoopThread()
 EventLoop* EventLoopThread::startInLoop()
 {
     thread_.start();
-
     {
         MutexLockGuard lock(mutex_);
         // while when loop is not NULL, and cond will notify thread to handle event
@@ -36,7 +35,8 @@ void EventLoopThread::threadFunc()
 {
     EventLoop loop;
 
-    {   
+    {
+        std::cout << "EventLoopThread::threadFunc()" << std::endl;
         MutexLockGuard lock(mutex_);
         loop_ = &loop;
         cond_.notify();

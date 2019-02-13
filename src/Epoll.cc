@@ -12,15 +12,12 @@
 
 using namespace std;
 
-
 const int EVENTSNUM = 4096;
 const int EPOLLWAIT_TIME = 10000;
 
-//typedef std::shared_ptr<Channel> channelPtr;
-
 Epoll::Epoll()
     : epollFd_(epoll_create1(EPOLL_CLOEXEC))
-    , epoll_events_(EVENTSNUM)
+    , epoll_events_(10)
 {
     assert(epollFd_ > 0);
 }
@@ -110,11 +107,13 @@ std::vector<channelPtr> Epoll::polls()
 {
     while (true)
     {
+        std::cout << epoll_events_.size() << std::endl;
         int event_count = epoll_wait(epollFd_, &*epoll_events_.begin(), epoll_events_.size(), EPOLLWAIT_TIME);
         if (event_count < 0)
         {
             perror("error, epoll wait fail");
         }
+        std::cout << "enter req datas" << std::endl;
         std::vector<channelPtr> req_datas = get_events_request(event_count);
         if (req_datas.size() > 0)
         {

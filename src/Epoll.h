@@ -31,7 +31,6 @@ private:
     int epollFd_;
     std::vector<epoll_event> epoll_events_;
     std::shared_ptr<Channel> chans_[MAXFDS];
-
     std::shared_ptr<HttpData> httpdDatas_[MAXFDS];
     TimerManager timeManager_;
 //    Timer timer_;

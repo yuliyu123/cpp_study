@@ -49,9 +49,7 @@ struct ThreadData
         latch_ = NULL;
 
         CurrentThread::threadName = name_.empty() ? "thread" : name_.c_str();
-
         prctl(PR_SET_NAME, CurrentThread::threadName);
-
         func_();
         CurrentThread::threadName = "finished";
     }

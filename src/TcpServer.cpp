@@ -41,19 +41,20 @@ void TcpServer::start()
 
 void TcpServer::newConnection()
 {
-    printf("enter newConnection");
+    std::cout << "\"enter newConnection\"" << std::endl;
     struct sockaddr_in client_addr;
 
     memset(&client_addr, 0, sizeof(struct sockaddr_in));
     socklen_t client_addr_len = sizeof(client_addr);
     int accept_fd = 0;
+    std::cout << "enter accept" << std::endl;
 
     while ((accept_fd = accept(listenFd_, (struct sockaddr*)&client_addr, &client_addr_len)) > 0)
     {
+        std::cout << "New connection from " << std::endl;
         EventLoop* loop = eventLoopPoolPtr_->getNextLoop();
 //        LOG << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port);
 
-        printf("New connection from ");
         if (accept_fd > MAXFDS)
         {
             close(accept_fd);

@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <functional>
 
-
 AsyncLogging::AsyncLogging(std::string logFileName_,int flushInterval)
   : flushInterval_(flushInterval),
     running_(false),
