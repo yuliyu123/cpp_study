@@ -1,0 +1,9 @@
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles/gtest.dir
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/CMakeFiles/WebServer.dir
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base/CMakeFiles/rebuild_cache.dir
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base/CMakeFiles/edit_cache.dir
+/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base/CMakeFiles/libserver_base.dir

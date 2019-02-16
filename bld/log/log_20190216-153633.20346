@@ -1,0 +1,176 @@
+Log file created at: 2019/02/16 15:36:33
+Running on machine: looper
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0216 15:36:33.123344 20346 main.cpp:49] _PTHREADS is not defined !
+I0216 15:36:33.125160 20346 Channel.h:63] listenFd_ set success, listenFd_ is:6
+I0216 15:36:33.125198 20346 TcpServer.cpp:32] enter start server
+I0216 15:36:33.125203 20346 EventLoopThreadPool.cc:25] threadNums_: 4 current is the 0 thread
+I0216 15:36:33.125211 20346 Condition.h:15] condition init
+I0216 15:36:33.125216 20346 Condition.h:15] condition init
+I0216 15:36:33.125273 20346 Condition.h:27] condition wait
+I0216 15:36:33.125317 20347 CountDownLatch.cpp:24] count is: 0
+W0216 15:36:33.125444 20347 CountDownLatch.cpp:26] count is 0, will notify all thread
+I0216 15:36:33.126507 20347 Condition.h:39] notify all thread success
+I0216 15:36:33.126814 20346 Condition.h:27] condition wait
+I0216 15:36:33.126828 20347 Thread.cc:52] thread name is: EventLoopThread
+I0216 15:36:33.128563 20347 EventLoopThread.cc:39] will notify one thread
+I0216 15:36:33.128620 20347 Condition.h:34] notify one thread success
+I0216 15:36:33.128633 20346 EventLoopThreadPool.cc:25] threadNums_: 4 current is the 1 thread
+I0216 15:36:33.128643 20346 Condition.h:15] condition init
+I0216 15:36:33.128648 20346 Condition.h:15] condition init
+I0216 15:36:33.128701 20346 Condition.h:27] condition wait
+I0216 15:36:33.128715 20347 EventLoop.cc:59] start thread, and entry event loop
+I0216 15:36:33.128723 20347 EventLoop.cc:72] enter epoller_->polls()
+I0216 15:36:33.128731 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:33.128804 20348 CountDownLatch.cpp:24] count is: 0
+W0216 15:36:33.128814 20348 CountDownLatch.cpp:26] count is 0, will notify all thread
+I0216 15:36:33.128821 20348 Condition.h:39] notify all thread success
+I0216 15:36:33.128835 20346 Condition.h:27] condition wait
+I0216 15:36:33.128844 20348 Thread.cc:52] thread name is: EventLoopThread
+I0216 15:36:33.130133 20348 EventLoopThread.cc:39] will notify one thread
+I0216 15:36:33.130184 20348 Condition.h:34] notify one thread success
+I0216 15:36:33.130275 20346 EventLoopThreadPool.cc:25] threadNums_: 4 current is the 2 thread
+I0216 15:36:33.130291 20346 Condition.h:15] condition init
+I0216 15:36:33.130303 20346 Condition.h:15] condition init
+I0216 15:36:33.130347 20346 Condition.h:27] condition wait
+I0216 15:36:33.130357 20348 EventLoop.cc:59] start thread, and entry event loop
+I0216 15:36:33.130362 20348 EventLoop.cc:72] enter epoller_->polls()
+I0216 15:36:33.130367 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:33.130388 20349 CountDownLatch.cpp:24] count is: 0
+W0216 15:36:33.130393 20349 CountDownLatch.cpp:26] count is 0, will notify all thread
+I0216 15:36:33.130398 20349 Condition.h:39] notify all thread success
+I0216 15:36:33.130408 20346 Condition.h:27] condition wait
+I0216 15:36:33.130414 20349 Thread.cc:52] thread name is: EventLoopThread
+I0216 15:36:33.131426 20349 EventLoopThread.cc:39] will notify one thread
+I0216 15:36:33.131448 20349 Condition.h:34] notify one thread success
+I0216 15:36:33.131458 20346 EventLoopThreadPool.cc:25] threadNums_: 4 current is the 3 thread
+I0216 15:36:33.131466 20346 Condition.h:15] condition init
+I0216 15:36:33.131470 20346 Condition.h:15] condition init
+I0216 15:36:33.131503 20346 Condition.h:27] condition wait
+I0216 15:36:33.131511 20349 EventLoop.cc:59] start thread, and entry event loop
+I0216 15:36:33.131516 20349 EventLoop.cc:72] enter epoller_->polls()
+I0216 15:36:33.131520 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:33.131542 20350 CountDownLatch.cpp:24] count is: 0
+W0216 15:36:33.131548 20350 CountDownLatch.cpp:26] count is 0, will notify all thread
+I0216 15:36:33.131552 20350 Condition.h:39] notify all thread success
+I0216 15:36:33.131561 20346 Condition.h:27] condition wait
+I0216 15:36:33.131568 20350 Thread.cc:52] thread name is: EventLoopThread
+I0216 15:36:33.132755 20350 EventLoopThread.cc:39] will notify one thread
+I0216 15:36:33.132795 20350 Condition.h:34] notify one thread success
+I0216 15:36:33.132808 20346 Channel.h:29] Channel::setReadCallback
+I0216 15:36:33.132830 20346 EventLoop.cc:59] start thread, and entry event loop
+I0216 15:36:33.132835 20346 EventLoop.cc:72] enter epoller_->polls()
+I0216 15:36:33.132838 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:33.132846 20350 EventLoop.cc:59] start thread, and entry event loop
+I0216 15:36:33.132850 20350 EventLoop.cc:72] enter epoller_->polls()
+I0216 15:36:33.132853 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:43.140148 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:43.140250 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:43.140267 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:43.140277 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:43.140288 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:53.151646 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:53.151724 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:53.151742 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:53.151757 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:36:53.151772 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:03.162870 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:03.162931 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:03.162945 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:03.162955 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:03.162964 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:13.173653 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:13.173753 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:13.173776 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:13.173797 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:13.173817 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:23.185024 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:23.185091 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:23.185104 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:23.185115 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:23.185127 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:33.195384 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:33.195430 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:33.195439 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:33.195447 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:33.195456 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:43.206470 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:43.206540 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:43.206554 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:43.206567 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:43.206578 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:53.216955 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:53.217031 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:53.217048 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:53.217061 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:37:53.217075 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:03.227502 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:03.227589 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:03.227613 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:03.227630 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:03.227648 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:13.238970 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:13.239051 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:13.239073 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:13.239092 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:13.239112 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:23.249632 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:23.249711 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:23.249732 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:23.249748 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:23.249765 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:33.260120 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:33.260210 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:33.260233 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:33.260249 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:33.260264 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:43.270416 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:43.270493 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:43.270509 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:43.270524 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:43.270535 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:53.281785 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:53.281858 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:53.281877 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:53.281890 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:38:53.281903 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:03.289094 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:03.289297 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:03.289319 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:03.289331 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:03.289342 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:13.299710 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:13.299791 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:13.299810 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:13.299825 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:13.299840 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:23.310607 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:23.310683 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:23.310700 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:23.310714 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:23.310729 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:33.321755 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:33.321838 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:33.321858 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:33.321872 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:33.321887 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:43.333111 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:43.333174 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:43.333189 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:43.333199 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:43.333210 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:53.344189 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:53.344275 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:53.344296 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:53.344314 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:39:53.344444 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:03.354614 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:03.354684 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:03.354703 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:03.354717 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:03.354732 20347 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:13.365825 20346 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:13.365890 20349 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:13.365901 20348 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:13.365909 20350 Epoll.cc:110] epoll_events_.size(): 10
+I0216 15:40:13.365918 20347 Epoll.cc:110] epoll_events_.size(): 10

@@ -1,9 +1,4 @@
 set (base_src
-		AsyncLogging.cpp
-		FileUtil.cpp
-		LogFile.cpp
-		Logging.cpp
-		LogStream.cpp
 		Thread.cc
         CountDownLatch.cpp
 		)

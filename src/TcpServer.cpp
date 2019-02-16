@@ -18,7 +18,6 @@ TcpServer::TcpServer(EventLoop *loop, int threadNums, int port)
     , started_(false)
 {
     acceptChannelPtr_->setFd(listenFd_);
-    std::cout << listenFd_ << std::endl;
     handle_for_sigpipe();
     // 设为非阻塞模式
     if (setSocketNonBlocking(listenFd_) < 0)
@@ -30,7 +29,7 @@ TcpServer::TcpServer(EventLoop *loop, int threadNums, int port)
 
 void TcpServer::start()
 {
-    std::cout << "enter start server" << std::endl;
+    LOG(INFO) << "enter start server";
     eventLoopPoolPtr_->start();
     acceptChannelPtr_->setEvents(EPOLLIN | EPOLLET);
     acceptChannelPtr_->setReadCallback(std::bind(&TcpServer::newConnection,this));
@@ -41,19 +40,19 @@ void TcpServer::start()
 
 void TcpServer::newConnection()
 {
-    std::cout << "\"enter newConnection\"" << std::endl;
+    LOG(INFO) << "enter newConnection";
     struct sockaddr_in client_addr;
 
     memset(&client_addr, 0, sizeof(struct sockaddr_in));
     socklen_t client_addr_len = sizeof(client_addr);
     int accept_fd = 0;
-    std::cout << "enter accept" << std::endl;
+    LOG(INFO)  << "will accept fd";
 
     while ((accept_fd = accept(listenFd_, (struct sockaddr*)&client_addr, &client_addr_len)) > 0)
     {
-        std::cout << "New connection from " << std::endl;
+        LOG(INFO) << "New connection from ";
         EventLoop* loop = eventLoopPoolPtr_->getNextLoop();
-//        LOG << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port);
+        LOG(INFO) << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port);
 
         if (accept_fd > MAXFDS)
         {

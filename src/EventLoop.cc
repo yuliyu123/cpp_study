@@ -6,10 +6,26 @@
 
 __thread EventLoop* t_loopInCurrentThread = 0;
 
+int createEventfd()
+{
+	int evtfd = eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
+	if (evtfd < 0)
+	{
+		LOG(WARNING) << "Failed in eventfd, will abort";
+		abort();
+	}
+	return evtfd;
+}
+
 EventLoop::EventLoop()
 	: looping_(false)
+	, epoller_(new Epoll)
+	, wakeupFd_(createEventfd())
 	, quit_(false)
+	, eventHandling_(false)
+	, callPendingFunctors_(true)
 	, threadId_(std::this_thread::get_id())
+	, wakupChan_(new Channel(this, wakeupFd_))
 {
 	if (t_loopInCurrentThread)
 	{
@@ -27,7 +43,6 @@ EventLoop::~EventLoop()
 	t_loopInCurrentThread = NULL;
 }
 
-
 bool EventLoop::isInLoopThread()
 {
 	return threadId_ == std::this_thread::get_id();
@@ -41,22 +56,24 @@ bool EventLoop::assertInLoopThread()
 // event loop
 void EventLoop::loop()
 {
-	std::cout << looping_ << std::endl;
-	assert(!looping_);
-	assertInLoopThread(); // 处在该线程中， 但该eventloop的loop还没用到
-	looping_ = true;
-	// this eventloop start loop
-	quit_ = false;
+    LOG(INFO) << "start thread, and entry event loop";
+    assert(!looping_);
+    assertInLoopThread(); // 处在该线程中， 但该eventloop的loop还没用到
+    looping_ = true;
+    // this eventloop start loop
+    quit_ = false;
 
-	std::vector<channelPtr> channels;
+    std::vector<channelPtr> channels;
 
     while (!quit_)
 	{
-        channels.clear();
-        channels = epoller_->polls();
-        eventHandling_ = true;
+		channels.clear();
+		eventHandling_ = true;
+		LOG(INFO) << "enter epoller_->polls()";
+		channels = epoller_->polls();
 
-        for (auto &it : channels)
+		LOG(INFO) << "start handle channels";
+		for (auto &it : channels)
         {
             it->handleEvents();
         }
@@ -89,6 +106,7 @@ void EventLoop::queueInloop(Functor&& cb)
 	}
 
 	if (!isInLoopThread() || callPendingFunctors_)
+//		LOG(WARNING) << "wake up one ";
 		wakeup();
 }
 
@@ -125,10 +143,11 @@ void EventLoop::wakeup()
 {
 	int one = 1;
 	ssize_t n = writen(wakeupFd_, (char*)(&one), sizeof(one));
+	LOG(INFO) << "EventLoop::wakeup() write 8 byte";
 
 	if (n != 1)
 	{
-//		LOG << "EventLoop::wakeup() write " << n << " bytes instead of 8";
+		LOG(WARNING) << "EventLoop::wakeup() write " << n << " bytes instead of 8";
 	}
 }
 

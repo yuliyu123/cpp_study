@@ -36,7 +36,7 @@ void EventLoopThread::threadFunc()
     EventLoop loop;
 
     {
-        std::cout << "EventLoopThread::threadFunc()" << std::endl;
+        LOG(INFO) << "will notify one thread";
         MutexLockGuard lock(mutex_);
         loop_ = &loop;
         cond_.notify();

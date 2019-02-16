@@ -23,4 +23,5 @@ set (server_src
 include_directories("${PROJECT_SOURCE_DIR}/src")
 add_executable(WebServer ${server_src})
 
-target_link_libraries(WebServer libserver_base)
+target_link_libraries(WebServer libserver_base glog::glog)
+

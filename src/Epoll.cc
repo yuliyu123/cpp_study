@@ -107,16 +107,17 @@ std::vector<channelPtr> Epoll::polls()
 {
     while (true)
     {
-        std::cout << epoll_events_.size() << std::endl;
+        LOG(INFO) << "epoll_events_.size(): " << epoll_events_.size();
         int event_count = epoll_wait(epollFd_, &*epoll_events_.begin(), epoll_events_.size(), EPOLLWAIT_TIME);
         if (event_count < 0)
         {
             perror("error, epoll wait fail");
         }
-        std::cout << "enter req datas" << std::endl;
+
         std::vector<channelPtr> req_datas = get_events_request(event_count);
         if (req_datas.size() > 0)
         {
+            LOG(INFO) << "req_datas.size: " << req_datas.size();
             return req_datas;
         }
     }

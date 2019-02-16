@@ -22,7 +22,7 @@ void EventLoopThreadPool::start()
     started_ = true;
     for (int i = 0; i < threadNums_; i++)
     {
-        std::cout << "EventLoopThreadPool::start(), thread num is: " << threadNums_ << std::endl;
+        LOG(INFO) << "threadNums_: " << threadNums_ << " current is the " << i << " thread";
         std::shared_ptr<EventLoopThread> eventThread(new EventLoopThread());
         threads_.push_back(eventThread);
         loops_.push_back(eventThread->startInLoop());
@@ -35,6 +35,7 @@ EventLoop* EventLoopThreadPool::getNextLoop()
     assert(started_);
     EventLoop* loop = baseLoop_;
 
+    LOG(INFO) << __FUNCTION__ << "has error";
     if (!loops_.empty())
     {
         loop = loops_[next_];

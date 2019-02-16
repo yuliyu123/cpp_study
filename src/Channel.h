@@ -26,22 +26,25 @@ public:
 
 	void setReadCallback(EventCallback&& readHandler)
 	{
-		std::cout << "Channel::setReadCallback" << std::endl;
+		LOG(INFO) << "Channel::setReadCallback";
 		readCallBack_ = readHandler;
 	}
 
 	void setWriteCallBack(EventCallback&& writeHandler)
 	{
-		writeCallback_ = writeHandler;
+        LOG(INFO) << "Channel::setWriteCallBack";
+        writeCallback_ = writeHandler;
 	}
 
 	void setCloseCallback(EventCallback&& closeHandler)
 	{
-		closeCallback_ = closeHandler;
+        LOG(INFO) << "Channel::setCloseCallback";
+        closeCallback_ = closeHandler;
 	}
 
 	void setErrorCallback(EventCallback&& errorHandler)
 	{
+        LOG(INFO) << "Channel::setErrorCallback";
 		errorCallback_ = errorHandler;
 	}
 
@@ -57,7 +60,8 @@ public:
 
 	void setFd(int fd)
 	{
-		fd_ = fd;
+        LOG(INFO) << "listenFd_ set success, listenFd_ is:" << fd ;
+        fd_ = fd;
 	}
 
 	void setHolder(std::shared_ptr<HttpData> holder)

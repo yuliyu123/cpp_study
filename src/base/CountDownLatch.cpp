@@ -21,6 +21,8 @@ void CountDownLatch::countDown()
 {
     MutexLockGuard lock(mutex_);
     --count_;
+    LOG(INFO) << "count is: " << count_;
     if (count_ == 0)
+        LOG(WARNING) << "count is 0, will notify all thread";
         condition_.notifyAll();
 }

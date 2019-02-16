@@ -1,0 +1,13 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/looperX/Downloads/cpp_study
+-- Boost version: 1.66.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Boost_INCLUDE_DIRS: /usr/local/include
+-- Boost_LIBRARIES: /usr/local/lib/libboost_system.dylib;/usr/local/lib/libboost_filesystem.dylib
+-- Boost_VERSION: 106600
+-- glog has founded: 
+-- glog_VERSION: 0.3.5
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/looperX/Downloads/cpp_study/cmake-build-debug

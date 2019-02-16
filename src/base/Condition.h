@@ -12,26 +12,31 @@ public:
     Condition(MutexLock& mutex)
         : mutex_(mutex)
     {
+        LOG(INFO) << "condition init";
         pthread_cond_init(&cond_, NULL);
     }
 
     ~Condition()
     {
+        LOG(INFO) << "destructor condition";
         pthread_cond_destroy(&cond_);
     }
 
     void wait()
     {
+        LOG(INFO) << "condition wait";
         pthread_cond_wait(&cond_, mutex_.get());
     }
 
     void notify()
     {
         pthread_cond_signal(&cond_);
+        LOG(INFO) << "notify one thread success";
     }
 
     void notifyAll()
     {
+        LOG(INFO) << "notify all thread success";
         pthread_cond_broadcast(&cond_);
     }
 
