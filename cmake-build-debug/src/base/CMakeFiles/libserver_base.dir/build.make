@@ -57,74 +57,9 @@ include src/base/CMakeFiles/libserver_base.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/base/CMakeFiles/libserver_base.dir/flags.make
 
-src/base/CMakeFiles/libserver_base.dir/AsyncLogging.cpp.o: src/base/CMakeFiles/libserver_base.dir/flags.make
-src/base/CMakeFiles/libserver_base.dir/AsyncLogging.cpp.o: ../src/base/AsyncLogging.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/base/CMakeFiles/libserver_base.dir/AsyncLogging.cpp.o"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libserver_base.dir/AsyncLogging.cpp.o -c /Users/looperX/Downloads/cpp_study/src/base/AsyncLogging.cpp
-
-src/base/CMakeFiles/libserver_base.dir/AsyncLogging.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libserver_base.dir/AsyncLogging.cpp.i"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/looperX/Downloads/cpp_study/src/base/AsyncLogging.cpp > CMakeFiles/libserver_base.dir/AsyncLogging.cpp.i
-
-src/base/CMakeFiles/libserver_base.dir/AsyncLogging.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libserver_base.dir/AsyncLogging.cpp.s"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/looperX/Downloads/cpp_study/src/base/AsyncLogging.cpp -o CMakeFiles/libserver_base.dir/AsyncLogging.cpp.s
-
-src/base/CMakeFiles/libserver_base.dir/FileUtil.cpp.o: src/base/CMakeFiles/libserver_base.dir/flags.make
-src/base/CMakeFiles/libserver_base.dir/FileUtil.cpp.o: ../src/base/FileUtil.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/base/CMakeFiles/libserver_base.dir/FileUtil.cpp.o"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libserver_base.dir/FileUtil.cpp.o -c /Users/looperX/Downloads/cpp_study/src/base/FileUtil.cpp
-
-src/base/CMakeFiles/libserver_base.dir/FileUtil.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libserver_base.dir/FileUtil.cpp.i"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/looperX/Downloads/cpp_study/src/base/FileUtil.cpp > CMakeFiles/libserver_base.dir/FileUtil.cpp.i
-
-src/base/CMakeFiles/libserver_base.dir/FileUtil.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libserver_base.dir/FileUtil.cpp.s"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/looperX/Downloads/cpp_study/src/base/FileUtil.cpp -o CMakeFiles/libserver_base.dir/FileUtil.cpp.s
-
-src/base/CMakeFiles/libserver_base.dir/LogFile.cpp.o: src/base/CMakeFiles/libserver_base.dir/flags.make
-src/base/CMakeFiles/libserver_base.dir/LogFile.cpp.o: ../src/base/LogFile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/base/CMakeFiles/libserver_base.dir/LogFile.cpp.o"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libserver_base.dir/LogFile.cpp.o -c /Users/looperX/Downloads/cpp_study/src/base/LogFile.cpp
-
-src/base/CMakeFiles/libserver_base.dir/LogFile.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libserver_base.dir/LogFile.cpp.i"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/looperX/Downloads/cpp_study/src/base/LogFile.cpp > CMakeFiles/libserver_base.dir/LogFile.cpp.i
-
-src/base/CMakeFiles/libserver_base.dir/LogFile.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libserver_base.dir/LogFile.cpp.s"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/looperX/Downloads/cpp_study/src/base/LogFile.cpp -o CMakeFiles/libserver_base.dir/LogFile.cpp.s
-
-src/base/CMakeFiles/libserver_base.dir/Logging.cpp.o: src/base/CMakeFiles/libserver_base.dir/flags.make
-src/base/CMakeFiles/libserver_base.dir/Logging.cpp.o: ../src/base/Logging.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/base/CMakeFiles/libserver_base.dir/Logging.cpp.o"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libserver_base.dir/Logging.cpp.o -c /Users/looperX/Downloads/cpp_study/src/base/Logging.cpp
-
-src/base/CMakeFiles/libserver_base.dir/Logging.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libserver_base.dir/Logging.cpp.i"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/looperX/Downloads/cpp_study/src/base/Logging.cpp > CMakeFiles/libserver_base.dir/Logging.cpp.i
-
-src/base/CMakeFiles/libserver_base.dir/Logging.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libserver_base.dir/Logging.cpp.s"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/looperX/Downloads/cpp_study/src/base/Logging.cpp -o CMakeFiles/libserver_base.dir/Logging.cpp.s
-
-src/base/CMakeFiles/libserver_base.dir/LogStream.cpp.o: src/base/CMakeFiles/libserver_base.dir/flags.make
-src/base/CMakeFiles/libserver_base.dir/LogStream.cpp.o: ../src/base/LogStream.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/base/CMakeFiles/libserver_base.dir/LogStream.cpp.o"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libserver_base.dir/LogStream.cpp.o -c /Users/looperX/Downloads/cpp_study/src/base/LogStream.cpp
-
-src/base/CMakeFiles/libserver_base.dir/LogStream.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libserver_base.dir/LogStream.cpp.i"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/looperX/Downloads/cpp_study/src/base/LogStream.cpp > CMakeFiles/libserver_base.dir/LogStream.cpp.i
-
-src/base/CMakeFiles/libserver_base.dir/LogStream.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libserver_base.dir/LogStream.cpp.s"
-	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/looperX/Downloads/cpp_study/src/base/LogStream.cpp -o CMakeFiles/libserver_base.dir/LogStream.cpp.s
-
 src/base/CMakeFiles/libserver_base.dir/Thread.cc.o: src/base/CMakeFiles/libserver_base.dir/flags.make
 src/base/CMakeFiles/libserver_base.dir/Thread.cc.o: ../src/base/Thread.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/base/CMakeFiles/libserver_base.dir/Thread.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/base/CMakeFiles/libserver_base.dir/Thread.cc.o"
 	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libserver_base.dir/Thread.cc.o -c /Users/looperX/Downloads/cpp_study/src/base/Thread.cc
 
 src/base/CMakeFiles/libserver_base.dir/Thread.cc.i: cmake_force
@@ -137,7 +72,7 @@ src/base/CMakeFiles/libserver_base.dir/Thread.cc.s: cmake_force
 
 src/base/CMakeFiles/libserver_base.dir/CountDownLatch.cpp.o: src/base/CMakeFiles/libserver_base.dir/flags.make
 src/base/CMakeFiles/libserver_base.dir/CountDownLatch.cpp.o: ../src/base/CountDownLatch.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/base/CMakeFiles/libserver_base.dir/CountDownLatch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/base/CMakeFiles/libserver_base.dir/CountDownLatch.cpp.o"
 	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libserver_base.dir/CountDownLatch.cpp.o -c /Users/looperX/Downloads/cpp_study/src/base/CountDownLatch.cpp
 
 src/base/CMakeFiles/libserver_base.dir/CountDownLatch.cpp.i: cmake_force
@@ -150,27 +85,17 @@ src/base/CMakeFiles/libserver_base.dir/CountDownLatch.cpp.s: cmake_force
 
 # Object files for target libserver_base
 libserver_base_OBJECTS = \
-"CMakeFiles/libserver_base.dir/AsyncLogging.cpp.o" \
-"CMakeFiles/libserver_base.dir/FileUtil.cpp.o" \
-"CMakeFiles/libserver_base.dir/LogFile.cpp.o" \
-"CMakeFiles/libserver_base.dir/Logging.cpp.o" \
-"CMakeFiles/libserver_base.dir/LogStream.cpp.o" \
 "CMakeFiles/libserver_base.dir/Thread.cc.o" \
 "CMakeFiles/libserver_base.dir/CountDownLatch.cpp.o"
 
 # External object files for target libserver_base
 libserver_base_EXTERNAL_OBJECTS =
 
-src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/AsyncLogging.cpp.o
-src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/FileUtil.cpp.o
-src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/LogFile.cpp.o
-src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/Logging.cpp.o
-src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/LogStream.cpp.o
 src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/Thread.cc.o
 src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/CountDownLatch.cpp.o
 src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/build.make
 src/base/liblibserver_base.a: src/base/CMakeFiles/libserver_base.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library liblibserver_base.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/looperX/Downloads/cpp_study/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library liblibserver_base.a"
 	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && $(CMAKE_COMMAND) -P CMakeFiles/libserver_base.dir/cmake_clean_target.cmake
 	cd /Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libserver_base.dir/link.txt --verbose=$(VERBOSE)
 

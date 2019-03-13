@@ -1,2 +1,0 @@
-/usr/bin/ar qc lib3rdlib/gtest.a  CMakeFiles/3rdlib/gtest.dir/3rdlib/gtest/gmock-gtest-all.cc.o
-/usr/bin/ranlib lib3rdlib/gtest.a

@@ -7,7 +7,7 @@ project(cpp_study)
 #add_library(3rdlib/gtest STATIC 3rdlib/gtest/gmock-gtest-all.cc)
 #add_library(3rdlib/gtest STATIC 3rdlib/gtest/gmock-gtest-all.cc)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -lboost_system -lglog -lgflags ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -lboost_system -lglog -lgflags -lprotobuf")
 
 SET(CMAKE_BUILD_TYPE "Debug")
 #SET(CMAKE_BUILD_TYPE "Release")
@@ -34,7 +34,7 @@ add_definitions(-DBOOST_SYSTEM_NO_DEPRECATED)
 
 add_subdirectory(src)
 add_subdirectory(src/base)
-#add_subdirectory(src/networkif)
+add_subdirectory(src/networkif)
 
 include_directories("${PROJECT_SOURCE_DIR}/3rdlib")
 include_directories("${PROJECT_SOURCE_DIR}/src")
@@ -44,3 +44,4 @@ include_directories("${PROJECT_SOURCE_DIR}/src")
 #     enable_testing()
 # 	add_subdirectory(test)
 # endif(BUILD_TESTS)
+

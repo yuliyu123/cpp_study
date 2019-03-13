@@ -1,8 +1,0 @@
-/home/looper/cpp_study/bld/CMakeFiles/rebuild_cache.dir
-/home/looper/cpp_study/bld/CMakeFiles/edit_cache.dir
-/home/looper/cpp_study/bld/src/CMakeFiles/rebuild_cache.dir
-/home/looper/cpp_study/bld/src/CMakeFiles/WebServer.dir
-/home/looper/cpp_study/bld/src/CMakeFiles/edit_cache.dir
-/home/looper/cpp_study/bld/src/base/CMakeFiles/rebuild_cache.dir
-/home/looper/cpp_study/bld/src/base/CMakeFiles/libserver_base.dir
-/home/looper/cpp_study/bld/src/base/CMakeFiles/edit_cache.dir

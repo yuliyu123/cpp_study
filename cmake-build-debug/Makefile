@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named gtest
-
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
-
-# fast build rule for target.
-gtest/fast:
-	$(MAKE) -f CMakeFiles/gtest.dir/build.make CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
-
-#=============================================================================
 # Target rules for targets named WebServer
 
 # Build rule for target.
@@ -149,32 +136,31 @@ libserver_base/fast:
 	$(MAKE) -f src/base/CMakeFiles/libserver_base.dir/build.make src/base/CMakeFiles/libserver_base.dir/build
 .PHONY : libserver_base/fast
 
-gtest/gmock-gtest-all.o: gtest/gmock-gtest-all.cc.o
+#=============================================================================
+# Target rules for targets named networkifDemo
 
-.PHONY : gtest/gmock-gtest-all.o
+# Build rule for target.
+networkifDemo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 networkifDemo
+.PHONY : networkifDemo
 
-# target to build an object file
-gtest/gmock-gtest-all.cc.o:
-	$(MAKE) -f CMakeFiles/gtest.dir/build.make CMakeFiles/gtest.dir/gtest/gmock-gtest-all.cc.o
-.PHONY : gtest/gmock-gtest-all.cc.o
+# fast build rule for target.
+networkifDemo/fast:
+	$(MAKE) -f src/networkif/CMakeFiles/networkifDemo.dir/build.make src/networkif/CMakeFiles/networkifDemo.dir/build
+.PHONY : networkifDemo/fast
 
-gtest/gmock-gtest-all.i: gtest/gmock-gtest-all.cc.i
+#=============================================================================
+# Target rules for targets named protobuf_codec
 
-.PHONY : gtest/gmock-gtest-all.i
+# Build rule for target.
+protobuf_codec: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 protobuf_codec
+.PHONY : protobuf_codec
 
-# target to preprocess a source file
-gtest/gmock-gtest-all.cc.i:
-	$(MAKE) -f CMakeFiles/gtest.dir/build.make CMakeFiles/gtest.dir/gtest/gmock-gtest-all.cc.i
-.PHONY : gtest/gmock-gtest-all.cc.i
-
-gtest/gmock-gtest-all.s: gtest/gmock-gtest-all.cc.s
-
-.PHONY : gtest/gmock-gtest-all.s
-
-# target to generate assembly for a file
-gtest/gmock-gtest-all.cc.s:
-	$(MAKE) -f CMakeFiles/gtest.dir/build.make CMakeFiles/gtest.dir/gtest/gmock-gtest-all.cc.s
-.PHONY : gtest/gmock-gtest-all.cc.s
+# fast build rule for target.
+protobuf_codec/fast:
+	$(MAKE) -f src/networkif/CMakeFiles/protobuf_codec.dir/build.make src/networkif/CMakeFiles/protobuf_codec.dir/build
+.PHONY : protobuf_codec/fast
 
 # Help Target
 help:
@@ -184,12 +170,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... gtest"
 	@echo "... WebServer"
 	@echo "... libserver_base"
-	@echo "... gtest/gmock-gtest-all.o"
-	@echo "... gtest/gmock-gtest-all.i"
-	@echo "... gtest/gmock-gtest-all.s"
+	@echo "... networkifDemo"
+	@echo "... protobuf_codec"
 .PHONY : help
 
 

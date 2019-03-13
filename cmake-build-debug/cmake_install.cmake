@@ -36,6 +36,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/cmake_install.cmake")
   include("/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/base/cmake_install.cmake")
+  include("/Users/looperX/Downloads/cpp_study/cmake-build-debug/src/networkif/cmake_install.cmake")
 
 endif()
 

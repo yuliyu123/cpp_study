@@ -39,6 +39,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.13.2/CMakeSystem.cmake"
   "../src/CMakeLists.txt"
   "../src/base/CMakeLists.txt"
+  "../src/networkif/CMakeLists.txt"
   "/usr/local/lib/cmake/gflags/gflags-config-version.cmake"
   "/usr/local/lib/cmake/gflags/gflags-config.cmake"
   "/usr/local/lib/cmake/gflags/gflags-targets-release.cmake"
@@ -60,11 +61,13 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/base/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/networkif/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/gtest.dir/DependInfo.cmake"
   "src/CMakeFiles/WebServer.dir/DependInfo.cmake"
   "src/base/CMakeFiles/libserver_base.dir/DependInfo.cmake"
+  "src/networkif/CMakeFiles/networkifDemo.dir/DependInfo.cmake"
+  "src/networkif/CMakeFiles/protobuf_codec.dir/DependInfo.cmake"
   )
