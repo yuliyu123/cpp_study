@@ -192,17 +192,35 @@ void handle_for_sigpipe()
         return;
 }
 
-int setSocketNonBlocking(int fd)
+int setSocketNonBlocking(int sockfd)
 {
-    int flag = fcntl(fd, F_GETFL, 0);
-    if(flag == -1)
-        return -1;
+    // non-block
+    int flags = fcntl(sockfd, F_GETFL, 0);
+    flags |= O_NONBLOCK;
+    int ret = fcntl(sockfd, F_SETFL, flags);
+    // FIXME check
 
-    flag |= O_NONBLOCK;
-    if(fcntl(fd, F_SETFL, flag) == -1)
-        return -1;
+    // close-on-exec
+    flags = fcntl(sockfd, F_GETFD, 0);
+    flags |= FD_CLOEXEC;
+    ret = fcntl(sockfd, F_SETFD, flags);
+    // FIXME check
+
+    (void)ret;
     return 0;
 }
+
+//int setSocketNonBlocking(int fd)
+//{
+//    int flag = fcntl(fd, F_GETFL, 0);
+//    if(flag == -1)
+//        return -1;
+//
+//    flag |= O_NONBLOCK;
+//    if(fcntl(fd, F_SETFL, flag) == -1)
+//        return -1;
+//    return 0;
+//}
 
 void setSocketNodelay(int fd) 
 {

@@ -15,6 +15,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <cstring>
+#include <chrono>
 #include <assert.h>
 
 #include <boost/noncopyable.hpp>
@@ -26,6 +27,8 @@
 #include <boost/system/error_code.hpp>
 #include <glog/logging.h>
 
+using namespace std;
+using namespace chrono;
 using AsioIoService = boost::asio::io_service;
 using AsioEndPoint = boost::asio::ip::tcp::endpoint;
 using AsioTcp = boost::asio::ip::tcp;

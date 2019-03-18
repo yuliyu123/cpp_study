@@ -8,25 +8,28 @@
 #include "Channel.h"
 #include "HttpData.h"
 
-
 class Timer
 {
 public:
-	Timer(std::shared_ptr<HttpData> requestData, int timeout);
-	Timer(Timer& rhs);
+	Timer(AsioIoService& ioservice, bool isRepeated);
+	Timer(AsioIoService& ioservice, uint64_t count);
 	~Timer();
 
-	void update(int timeout);
-	bool isvalid();
-	void clearReq();
-	void setDeleted();
-	bool isDeleted() const;
-	size_t getExpTimer() const;
+	bool start(uint64_t interval, TimerCallback handler);
+	void stop();
+	void timeoutCallback(const boost::system::error_code& ec);
 
 private:
-	bool deleted_;
-	size_t expriedTime_;
-	std::shared_ptr<HttpData> httpDataPtr_;
+	void defer();
+
+private:
+	std::unique_ptr<AsioSteadyTimer> timer_;
+	// if current timer repeated, if yes, count++
+	uint64_t count_ {0};
+	bool isRepeated_ {false};
+	bool current_ {0};  // if current timer is equal to the latest timer
+	TimerCallback cb_;
+	int64_t interval_;
 };
 
 struct TimerCmp

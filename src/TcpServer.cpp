@@ -31,7 +31,7 @@ void TcpServer::start()
 {
     LOG(INFO) << "enter start server";
     eventLoopPoolPtr_->start();
-    acceptChannelPtr_->setEvents(EPOLLIN | EPOLLET);
+    acceptChannelPtr_->setEvents(EPOLLIN | EPOLLET); // 有数据到来，用边沿触发
     acceptChannelPtr_->setReadCallback(std::bind(&TcpServer::newConnection,this));
     acceptChannelPtr_->setConnCallback(std::bind(&TcpServer::handleThisConn, this));
     loop_->addToEpoller(acceptChannelPtr_);
