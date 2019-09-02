@@ -1,0 +1,7 @@
+glog级别及使用：
+LOG(INFO) << "Failed in eventfd";
+LOG(Warning) << "Failed in eventfd";
+LOG(ERROR) << "Failed in eventfd";
+
+
+

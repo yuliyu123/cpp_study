@@ -1,0 +1,9 @@
+存在a.cpp/a.h b.cpp/b.h
+a.cpp要用b.h, b.cpp也要用a.h
+此时会造成循环引用
+使用：
+a.h前向声明class b, b.h前向声明class a,
+并且a.cpp导入b.h头文件，b.cpp导入a.h路径
+不正确使用会报" error: member access into incomplete type 'Channel'"
+reference:
+https://blog.csdn.net/wcjwdq/article/details/43604679

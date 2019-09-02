@@ -1,37 +1,44 @@
-#pragma once
+//
+// Created by looperX on 2019-07-17.
+//
 
-#include "CommonDef.h"
-#include "Timer.h"
-#include "HttpData.h"
+#ifndef CPP_STUDY_EPOLL_H
+#define CPP_STUDY_EPOLL_H
+
+#include <vector>
+#include <map>
+
 #include "Channel.h"
 
-class Epoll
-{
+class Channel;
+class EventLoop;
+
+class Epoll {
 public:
-    Epoll();
+    typedef std::vector<Channel*> ChannelList;
+
+    Epoll(EventLoop* loop);
     ~Epoll();
-    void epoll_add(channelPtr request, int timeout);
-    void epoll_mod(channelPtr request, int timeout);
-    void epoll_del(channelPtr request);
 
-    void add_timer(channelPtr request, int timeout);
+//    Timestamp poll(int timeoutMs, ChannelList* activeChannels);
+    void poll(int timeoutMs, ChannelList* activeChannels);
+    void updateChannel(Channel* channel);
 
-    // return active events
-    int getEventFds()
-    {
-        return epollFd_;
-    }
+protected:
+    typedef std::map<int, Channel*> ChannelMap;
+    ChannelMap channels_;
 
-    void handle_expired_event();
-    std::vector<std::shared_ptr<Channel>> polls();
-
-    std::vector<std::shared_ptr<Channel>> get_events_request(int epoll_nums);
 private:
-    static const int MAXFDS = 100000;
-    int epollFd_;
-    std::vector<epoll_event> epoll_events_;
-    std::shared_ptr<Channel> chans_[MAXFDS];
-    std::shared_ptr<HttpData> httpdDatas_[MAXFDS];
-    TimerManager timeManager_;
-//    Timer timer_;
+    static const int kInitEventListSize = 16;
+    void fillActiveChannels(int numEvents,
+                            ChannelList* activeChannels) const;
+    void update(int operation, int fd);  // epoll_ctl更改fd状态
+
+
+    typedef std::vector<struct epoll_event> EventList;
+    int epollfd_;
+    EventList events_;
 };
+
+
+#endif //CPP_STUDY_EPOLL_H

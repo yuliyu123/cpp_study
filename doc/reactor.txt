@@ -1,0 +1,7 @@
+channel:针对单个的fd创建对应的回调，设置当前活动的事件
+eventloop->loop(): 遍历、轮询当前活跃着的activeChannels并且处理
+epoll->poll(): 使用epoll_wait()获取到来的fds并填充activeChannels(fillActiveChannels)
+
+
+
+

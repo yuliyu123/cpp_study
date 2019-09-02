@@ -1,7 +1,12 @@
 //
-// Created by loohan on 2019/1/7.
+// Created by looperX on 2019-07-17.
 //
-#include "TcpServer.h"
+
+#include <glog/logging.h>
+#include <vector>
+
+using namespace std;
+
 
 void initGlog()
 {
@@ -15,43 +20,7 @@ void initGlog()
     FLAGS_stop_logging_if_full_disk = true; //当磁盘被写满时，停止日志输出
 }
 
-int main(int argc, char *argv[])
+int main()
 {
-    int threadNum = 4;
-    int port = 80;
-    google::InitGoogleLogging(argv[0]);  // 初始化 glog
-//    google::ParseCommandLineFlags(&argc, &argv, true);  // 初始化 gflags
 
-    initGlog();
-    // parse args
-    int opt;
-    const char *str = "t:p:";
-    while ((opt = getopt(argc, argv, str))!= -1)
-    {
-        switch (opt)
-        {
-            case 't':
-            {
-                threadNum = atoi(optarg);
-                break;
-            }
-
-            case 'p':
-            {
-                port = atoi(optarg);
-                break;
-            }
-            default: break;
-        }
-    }
-    // STL库在多线程上应用
-#ifndef _PTHREADS
-    LOG(INFO) << "_PTHREADS is not defined !";
-#endif
-    EventLoop mainLoop;
-    TcpServer server(&mainLoop, threadNum, port);
-    server.start();
-    mainLoop.loop();
-
-    return 0;
 }

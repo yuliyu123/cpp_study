@@ -1,163 +1,71 @@
-#ifndef CHANNEL_H
-#define CHANNEL_H
+//
+// Created by looperX on 2019-07-17.
+//
 
-#include "CommonDef.h"
-#include "Timer.h"
-#include <string>
-#include <unordered_map>
-#include <memory>
-#include <sys/epoll.h>
+#ifndef CPP_STUDY_CHANNEL_H
+#define CPP_STUDY_CHANNEL_H
+
+#include <iostream>
 #include <functional>
 
+// 每个channel属于一个EventLoop, 因此只属于一个线程，始终只负责一个fd的时间分发，将不同的IO事件分给不同的回调，read/write/error等。该类由其他类直接或间接调用
 class EventLoop;
-class HttpData;
 
-// dispatch event
-class Channel
-{
-typedef std::function<void()> EventCallback;
-
+class Channel {
 public:
-	Channel(EventLoop* loop);
-	Channel(EventLoop* loop, int fd);
-	~Channel();
-	// void remove();
-	// void update();
+    typedef std::function<void()> EventCallback;
 
-	void setReadCallback(EventCallback&& readHandler)
-	{
-		LOG(INFO) << "Channel::setReadCallback";
-		readCallBack_ = readHandler;
-	}
+    Channel(EventLoop* loop, int fd);
+    ~Channel();
 
-	void setWriteCallBack(EventCallback&& writeHandler)
-	{
-        LOG(INFO) << "Channel::setWriteCallBack";
-        writeCallback_ = writeHandler;
-	}
+//    void handleEvent(Timestamp receiveTime);
+    void handleEvent();
+    void setReadCallback(EventCallback cb)
+    { readCallback_ = std::move(cb); }
+    void setWriteCallback(EventCallback cb)
+    { writeCallback_ = std::move(cb); }
+    void setCloseCallback(EventCallback cb)
+    { closeCallback_ = std::move(cb); }
+    void setErrorCallback(EventCallback cb)
+    { errorCallback_ = std::move(cb); }
 
-	void setCloseCallback(EventCallback&& closeHandler)
-	{
-        LOG(INFO) << "Channel::setCloseCallback";
-        closeCallback_ = closeHandler;
-	}
+    int fd() const { return fd_; }
+    int events() const { return events_; }
+    void set_revents(int revt) { revents_ = revt; } // used by epoll/pollers
+    // int revents() const { return revents_; }
+    bool isNoneEvent() const { return events_ == kNoneEvent; }
 
-	void setErrorCallback(EventCallback&& errorHandler)
-	{
-        LOG(INFO) << "Channel::setErrorCallback";
-		errorCallback_ = errorHandler;
-	}
+    void enableReading() { events_ |= kReadEvent; update(); }
+//    void disableReading() { events_ &= ~kReadEvent; update(); }
+//    void enableWriting() { events_ |= kWriteEvent; update(); }
+//    void disableWriting() { events_ &= ~kWriteEvent; update(); }
+//    void disableAll() { events_ = kNoneEvent; update(); }
+//    bool isWriting() const { return events_ & kWriteEvent; }
+//    bool isReading() const { return events_ & kReadEvent; }
 
-	void setConnCallback(EventCallback&& connHandler)
-	{
-		connCallback_ = connHandler;
-	}
+    // for Poller
+    int index() { return index_; }
+    void set_index(int idx) { index_ = idx; }
 
-	int getFd()
-	{
-		return fd_;
-	}
-
-	void setFd(int fd)
-	{
-        LOG(INFO) << "listenFd_ set success, listenFd_ is:" << fd ;
-        fd_ = fd;
-	}
-
-	void setHolder(std::shared_ptr<HttpData> holder)
-	{
-		holder_ = holder;
-	}
-
-	std::shared_ptr<HttpData> getHolder()
-	{
-		std::shared_ptr<HttpData> holderPtr(holder_.lock());
-		return holderPtr;
-	}
-
-	void setEvents(uint32_t events)
-	{
-		events_ = events;
-	}
-
-	// set current event
-	void setREvents(uint32_t revents)
-	{
-		revents_ = revents;
-	}
-
-	uint get_last_events()
-	{
-		return last_events_;
-	}
-
-	void handleEvents()
-	{
-		events_ = 0;
-
-		if ((revents_ & EPOLLHUP) && !(revents_ & EPOLLIN))
-        {
-            events_ = 0;
-            return;
-        }
-
-        if (revents_ & EPOLLERR)
-        {
-        	if (errorCallback_)
-        	{
-        		errorCallback_();
-        	}
-        	revents_ = 0;
-        	return;
-        }
-
-        if (revents_ & (EPOLLIN | EPOLLHUP | EPOLLPRI))
-        {
-        	handleRead();
-        }
-
-        if (revents_ & EPOLLOUT)
-        {
-        	handleWrite();
-        }
-
-        handleConn();
-	}
-
-	bool equalAndUpdateLastEvents()
-	{
-		bool ret = (last_events_ == events_);
-		last_events_ = events_;
-		return ret;
-	}
-
-	__uint32_t& getEvents()
-	{
-		return last_events_;
-	}
+    EventLoop* ownerLoop() { return loop_; }
 
 private:
-	void handleRead();
-	void handleWrite();
-	void handleError(int fd, int error_nums, std::string error_msg);
-	void handleConn();
+    void update();
 
-	EventLoop* loop_;
-	int fd_;
-	uint32_t events_;
-	uint32_t revents_;
-	uint32_t last_events_;
+    static const int kNoneEvent;
+    static const int kReadEvent;
+    static const int kWriteEvent;
+    EventLoop* loop_;
+    const int  fd_;
+    int        events_;  // channel本身关心的事件
+    int        revents_; // it's the received event types of epoll or poll， 目前活动的事件
+    int        index_; // used by Poller.
 
-	// 方便找到上层持有该Channel的对象
-	std::weak_ptr<HttpData> holder_;
-
-    EventCallback readCallBack_;
+    EventCallback readCallback_;
     EventCallback writeCallback_;
-    EventCallback connCallback_;
     EventCallback closeCallback_;
     EventCallback errorCallback_;
 };
 
-typedef std::shared_ptr<Channel> channelPtr;
 
-#endif
+#endif //CPP_STUDY_CHANNEL_H

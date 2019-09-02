@@ -34,7 +34,7 @@ add_definitions(-DBOOST_SYSTEM_NO_DEPRECATED)
 
 add_subdirectory(src)
 add_subdirectory(src/base)
-add_subdirectory(src/networkif)
+#add_subdirectory(src/networkif)
 
 include_directories("${PROJECT_SOURCE_DIR}/3rdlib")
 include_directories("${PROJECT_SOURCE_DIR}/src")

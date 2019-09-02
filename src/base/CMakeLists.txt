@@ -1,6 +1,6 @@
 set (base_src
-		Thread.cc
-        CountDownLatch.cpp
+		Thread.cpp
+#        CountDownLatch.cpp
 		)
 
 add_library(libserver_base STATIC

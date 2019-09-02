@@ -1,65 +1,73 @@
-#ifndef EVENTLOOP
-#define EVENTLOOP
+//
+// Created by looperX on 2019-07-17.
+//
 
-#include "CommonDef.h"
+#ifndef CPP_STUDY_EVENTLOOP_H
+#define CPP_STUDY_EVENTLOOP_H
+
+#include <atomic>
+#include <functional>
+#include <iostream>
 #include <vector>
-#include "base/MutexLock.h"
-#include "Channel.h"
-#include "Epoll.h"
-#include "Util.h"
+#include <thread>
+#include <memory>
 
-class EventLoop
-{
+#include "EventLoopBase.h"
+
+class Channel;
+class Epoll;
+
+// 每个 EventLoop class 拥有一个线程
+class EventLoop {
 public:
-	typedef std::function<void()> Functor;
-	EventLoop();
-	~EventLoop();
+    typedef std::function<void()> Callback;
 
-	bool isInLoopThread();
-	bool assertInLoopThread();
+    EventLoop();
+    ~EventLoop();
 
-	void runInLoop(Functor&& cb);
-	void queueInloop(Functor&& cb);
+    // force out-line dtor, for std::unique_ptr members.
 
-	void addToEpoller(std::shared_ptr<Channel> chanPtr, int timeout = 0)
-	{
-		epoller_->epoll_add(chanPtr, 0);
-	}
-
-	void updateEpoll(std::shared_ptr<Channel> chanPtr, int timeout = 0)
-	{
-		epoller_->epoll_mod(chanPtr, 0);
-	}
-
-	void removeFromPoller(std::shared_ptr<Channel> chanPtr)
-	{
-		epoller_->epoll_del(chanPtr);
-	}
-
-	void shutdown(std::shared_ptr<Channel> chanPtr);
-
-	void loop();
+    ///
+    /// Loops forever.
+    ///
+    /// Must be called in the same thread as creation of the object.
+    ///
+    void loop();
     void quit();
+    void runInLoop(Callback cb);
+    void queueInLoop(Callback cb);
+    size_t queueSize() const;
+    void doPendingFunctors();
+    bool isInLoopThread() const;
+    void assertInLoopThread();
+    void wakeup();
+    void handleRead();
+    void updateChannel(Channel* channel);
 
+    int runAt(timer_callback cb, void* args, uint64_t ts);
+    int runAfter(timer_callback cb, void* args, int sec, int millis);
+    int runEvery(timer_callback cb, void* args, int sec, int millis);
 
 private:
-	void wakeup();
-	void handleRead();
-	void handleConn();
-	void handlePendingFunctors();
+    void abortNotInLoopThread();
+    typedef std::vector<Channel*> ChannelList;
 
-	bool looping_;
-	std::shared_ptr<Epoll> epoller_;
+    bool looping_; /* atomic */
+    std::atomic<bool> quit_;
+    bool eventHandling_; /* atomic */
+    bool callingPendingFunctors_; /* atomic */
+//    std::mutex mtx_;  // todo
+//    const pid_t threadId_;
+    const std::thread::id threadId_;
+    std::unique_ptr<Epoll> poller_;
+    int wakeupFd_;
+    std::vector<Callback> pendingFunctors_;
+    std::unique_ptr<Channel> wakeupChannel_;
 
-	bool eventHandling_;
-	MutexLock mutexLock_;
-	std::vector<Functor> pendingFunctors_;
-	bool callPendingFunctors_;
-	int wakeupFd_;
-	bool quit_;
-	const std::thread::id threadId_;
-//	const pid_t threadId_;
-	std::shared_ptr<Channel> wakupChan_;
+    // scratch variables
+    ChannelList activeChannels_;
+    Channel* currentActiveChannel_;
 };
 
-#endif
+
+#endif //CPP_STUDY_EVENTLOOP_H
